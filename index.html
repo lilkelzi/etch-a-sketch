@@ -1,0 +1,50 @@
+<html>
+  <body>
+    <script>
+      let container1 = document.querySelector("body");
+
+      for (let i = 0; i < 10; i++) {  // Adjust the number of containers as needed
+        let box1 = document.createElement("div");
+        box1.classList.add("container");
+        
+
+        for (let x = 0; x < 10; x++) {  
+          let box = document.createElement("div");
+          box.classList.add("box"); 
+          box1.appendChild(box);  // Append each box to the current container (`box1`)
+          container1.appendChild(box1);
+        }
+      }
+    </script>
+
+    <style>
+      /* Set container to full screen */
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display:flex;
+        flex-direction: column; 
+       
+      }
+
+      * {
+  box-sizing: border-box;
+}
+
+      .container {
+        flex: 1 1 auto;
+        display: flex;
+        box-sizing: border-box;
+      }
+
+      .box {
+        flex: 1 1 auto;
+        width: 50px;   /* Set width */   /* Set height */
+        background-color: red;
+        box-sizing: border-box;
+        border: 1px solid white;
+      }
+    </style>
+  </body>
+</html>
