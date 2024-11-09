@@ -1,50 +1,65 @@
 <html>
   <body>
+    <button class ="pop">click to adjust boxes</button>
+    <div class="con"></div>
     <script>
-      let container1 = document.querySelector("body");
+      let y = z = 10;
+      const container1 = document.querySelector(".con");
+      const pop = document.querySelector(".pop");
+      pop.addEventListener("click", function() { y = z = prompt("enter new no of boxex:");
+      container1.innerHTML ="";
+      display();
+        });
 
-      for (let i = 0; i < 10; i++) {  // Adjust the number of containers as needed
+        function display () {
+      for (let i = 0; i < y; i++) {  // Adjust the number of containers as needed
         let box1 = document.createElement("div");
         box1.classList.add("container");
         
 
-        for (let x = 0; x < 10; x++) {  
+        for (let x = 0; x < z; x++) {  
           let box = document.createElement("div");
           box.classList.add("box"); 
           box1.appendChild(box);  // Append each box to the current container (`box1`)
           container1.appendChild(box1);
         }
       }
+    }
+    display();
     </script>
 
     <style>
-      /* Set container to full screen */
-      body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
+
+      .con {
+        height: 500px;
+        width: 500px;
         display:flex;
-        flex-direction: column; 
-       
+        margin:auto;
+        
+        
       }
 
-      * {
-  box-sizing: border-box;
-}
 
       .container {
         flex: 1 1 auto;
         display: flex;
         box-sizing: border-box;
+        flex-wrap: wrap;
+        width: 100%;
       }
 
       .box {
+        width: 25px;
         flex: 1 1 auto;
-        width: 50px;   /* Set width */   /* Set height */
         background-color: red;
-        box-sizing: border-box;
-        border: 1px solid white;
+        border: 1px solid #ffffff;
+        transition: filter 0.1s, transform 0.1s;
       }
+
+      .box:hover {
+  filter: contrast(500%) blur(2px);
+  transform: scale(1.1); /* Slight zoom to enhance the effect */
+}
     </style>
   </body>
 </html>
